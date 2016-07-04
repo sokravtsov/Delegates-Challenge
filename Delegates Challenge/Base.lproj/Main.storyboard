@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Delegates_Challenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,60 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sSd-qA-rof" userLabel="zip code">
+                                <rect key="frame" x="146" y="28" width="309" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="frG-wy-uva"/>
+                                    <constraint firstAttribute="width" constant="309" id="hnr-3e-pIn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="numberPad" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$00.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HlJ-bH-zvi" userLabel="cash">
+                                <rect key="frame" x="146" y="66" width="309" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="309" id="IeG-Eg-4gF"/>
+                                    <constraint firstAttribute="height" constant="30" id="SOD-aE-Lc0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="numberPad" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8K2-FF-sXw" userLabel="lockable">
+                                <rect key="frame" x="146" y="104" width="252" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="252" id="gr8-7d-7UJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="jLb-2h-4kK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XNZ-Lt-hAS">
+                                <rect key="frame" x="406" y="104" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="XNZ-Lt-hAS" firstAttribute="top" secondItem="HlJ-bH-zvi" secondAttribute="bottom" constant="8" id="2qK-rb-gBL"/>
+                            <constraint firstItem="8K2-FF-sXw" firstAttribute="leading" secondItem="HlJ-bH-zvi" secondAttribute="leading" id="5ik-fI-t1G"/>
+                            <constraint firstItem="HlJ-bH-zvi" firstAttribute="centerX" secondItem="sSd-qA-rof" secondAttribute="centerX" id="5mq-53-DtQ"/>
+                            <constraint firstItem="HlJ-bH-zvi" firstAttribute="top" secondItem="sSd-qA-rof" secondAttribute="bottom" constant="8" id="EWi-9P-kpx"/>
+                            <constraint firstItem="XNZ-Lt-hAS" firstAttribute="leading" secondItem="HlJ-bH-zvi" secondAttribute="trailing" constant="-49" id="ULa-Nf-Ecb"/>
+                            <constraint firstItem="sSd-qA-rof" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bpz-vu-BLn"/>
+                            <constraint firstItem="8K2-FF-sXw" firstAttribute="top" secondItem="HlJ-bH-zvi" secondAttribute="bottom" constant="8" id="qJJ-fT-MCx"/>
+                            <constraint firstItem="sSd-qA-rof" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="zAg-Rr-7AC"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cash" destination="HlJ-bH-zvi" id="Vc2-Uj-MD1"/>
+                        <outlet property="lockable" destination="8K2-FF-sXw" id="qG2-rm-2hb"/>
+                        <outlet property="lockableTextFieldSwitch" destination="XNZ-Lt-hAS" id="ZBm-nz-R0D"/>
+                        <outlet property="zipCode" destination="sSd-qA-rof" id="Ce2-kk-xGg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="304" y="397"/>
         </scene>
     </scenes>
 </document>

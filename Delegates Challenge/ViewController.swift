@@ -8,18 +8,46 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var zipCode: UITextField!
+    @IBOutlet weak var cash: UITextField!
+    @IBOutlet weak var lockable: UITextField!
+    @IBOutlet weak var lockableTextFieldSwitch: UISwitch!
+    
+    
+    var zipDelegate = ZipCodeTextFieldDelegate()
+    var cashDelegate = CashTextFieldDelegate()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        lockableTextFieldSwitch.enabled = false
+        self.zipCode.delegate = self.zipDelegate
+        self.cash.delegate = self.cashDelegate
+        self.lockable.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        if zipCode.text! != "" && cash.text! != "" {
+            lockableTextFieldSwitch.setOn(true, animated:true)
+            return true
+        } else {
+            lockableTextFieldSwitch.setOn(false, animated:true)
+            return false
+        }
     }
-
-
+    
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        var newText: NSString
+        
+        if lockableTextFieldSwitch.on {
+            newText = textField.text!
+            newText = newText.stringByReplacingCharactersInRange(range, withString: string)
+        }
+        return true
+    }
 }
 
